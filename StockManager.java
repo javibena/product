@@ -38,7 +38,19 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
-
+        boolean found = false;
+        Product productTemp = null;
+        Iterator<Product> iterador = stock.iterator();
+        while(iterador.hasNext() && !found)
+        {
+            productTemp = iterador.next();
+            if(id == productTemp.getID())
+            {
+                found = true;
+                productTemp.increaseQuantity(amount);
+            }
+        }
+       
     }
 
     /**
@@ -84,20 +96,20 @@ public class StockManager
             {
                 found = true;
                 productFound = productTemp;
-               
+
             }
         }
         return(productFound.getQuantity());
     }
 
-        /**
-         * Print details of all the products.
-         */
-        public void printProductDetails()
+    /**
+     * Print details of all the products.
+     */
+    public void printProductDetails()
+    {
+        for (Product producto : stock)
         {
-            for (Product producto : stock)
-            {
-                System.out.println(producto.toString());
-            }
+            System.out.println(producto.toString());
         }
     }
+}
