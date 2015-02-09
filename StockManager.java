@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Manage the stock in a business.
@@ -46,7 +47,20 @@ public class StockManager
      */
     public Product findProduct(int id)
     {
-        return null;
+       boolean found = false;
+       Product productFound = null;
+       Product productTemp = null;
+       Iterator<Product> iterador = stock.iterator();
+       while(iterador.hasNext() && !found)
+       {
+           productTemp = iterador.next();
+           if(id == productTemp.getID())
+           {
+               found = true;
+               productFound = productTemp;
+           }
+       }
+       return productFound;
     }
 
     /**

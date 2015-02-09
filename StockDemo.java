@@ -94,4 +94,5 @@ public class StockDemo
     {
         manager.printProductDetails();
     }
+   
 }
