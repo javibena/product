@@ -38,6 +38,7 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
+
     }
 
     /**
@@ -47,20 +48,20 @@ public class StockManager
      */
     public Product findProduct(int id)
     {
-       boolean found = false;
-       Product productFound = null;
-       Product productTemp = null;
-       Iterator<Product> iterador = stock.iterator();
-       while(iterador.hasNext() && !found)
-       {
-           productTemp = iterador.next();
-           if(id == productTemp.getID())
-           {
-               found = true;
-               productFound = productTemp;
-           }
-       }
-       return productFound;
+        boolean found = false;
+        Product productFound = null;
+        Product productTemp = null;
+        Iterator<Product> iterador = stock.iterator();
+        while(iterador.hasNext() && !found)
+        {
+            productTemp = iterador.next();
+            if(id == productTemp.getID())
+            {
+                found = true;
+                productFound = productTemp;
+            }
+        }
+        return productFound;
     }
 
     /**
@@ -72,17 +73,31 @@ public class StockManager
      */
     public int numberInStock(int id)
     {
-        return 0;
+        boolean found = false;
+        Product productFound = null;
+        Product productTemp = null;
+        Iterator<Product> iterador = stock.iterator();
+        while(iterador.hasNext() && !found)
+        {
+            productTemp = iterador.next();
+            if(id == productTemp.getID())
+            {
+                found = true;
+                productFound = productTemp;
+               
+            }
+        }
+        return(productFound.getQuantity());
     }
 
-    /**
-     * Print details of all the products.
-     */
-    public void printProductDetails()
-    {
-        for (Product producto : stock)
+        /**
+         * Print details of all the products.
+         */
+        public void printProductDetails()
         {
-            System.out.println(producto.toString());
+            for (Product producto : stock)
+            {
+                System.out.println(producto.toString());
+            }
         }
     }
-}

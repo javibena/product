@@ -94,5 +94,10 @@ public class StockDemo
     {
         manager.printProductDetails();
     }
+    
+    public int stock(int id)
+    {
+        return manager.numberInStock(id);
+    }
    
 }
